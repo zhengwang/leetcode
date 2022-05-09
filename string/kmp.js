@@ -1,4 +1,7 @@
 class KMP {
+	/**
+	 * @param {string} pat_str
+	 */
 	constructor(pat_str) {
 		// build dfa
 		const dfa = new Map;
@@ -34,6 +37,9 @@ class KMP {
 		this.M = LEN;
 	}
 
+	/**
+	 * @param {string} txt
+	 */
 	search(txt) {
 		let j=0;
 		txt.split("").forEach((ch, idx) => {
