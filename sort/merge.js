@@ -1,7 +1,7 @@
 /**
  * @param {number[]} nums
  */
-const merge = function(nums) {
+const Merge = function(nums) {
 	/**
 	 * @param {number[]} nums
 	 * @param {number} lo
@@ -101,5 +101,5 @@ const MergeBU = function(nums) {
 }
 
 const array = "MERGSORT";
-merge(array.split(''));
+Merge(array.split(''));
 MergeBU(array.split(''));
