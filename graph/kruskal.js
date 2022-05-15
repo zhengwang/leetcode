@@ -1,7 +1,3 @@
-function Manhattan(point1, point2) {
-	return Math.abs(point1[0] - point2[0]) + Math.abs(point1[1] - point2[1]);
-}
-
 class DisjoinSet {
 	constructor() {
 		this.parent = new Map;
@@ -20,12 +16,10 @@ class DisjoinSet {
 	union(x, y) {
 		let parent_x = this.find(x);
 		let parent_y = this.find(y);
-		
+
 
 		if (parent_x === parent_y) {
 			// cirle no need union
-			console.log(`parent_x=${parent_x}, x=${x} | parent_y=${parent_y}, y=${y}`);
-			console.log('find circle');
 			return false;
 		}
 
@@ -71,36 +65,14 @@ function Edge(v, weight) {
 	this.v = v;
 	this.w = weight;
 }
-var buildGraph = (edges) => {
-	const g = new Map;
 
-	edges.forEach(edge => {
-		let adj = g.get(edge[0]);
-		if (!adj) {
-			adj = [new Edge(edge[1], edge[2])];
-		} else {
-			adj.push(new Edge(edge[1], edge[2]));
-		}
-		g.set(edge[0], adj);
-		
-		adj = g.get(edge[1]);
-		if (!adj) {
-			adj = [new Edge(edge[0], edge[2])];
-		} else {
-			adj.push(new Edge(edge[0], edge[2]));
-		}
-		g.set(edge[1], adj);
-	});
-	console.log(g);
-	return g;
-}
 
 /**
  * Example on 'Introduction to Algorithm' - chapter 23
  */
 var kruskal = () => {
  	// 14 edges
-	const edges = [["a","b", 4], ["a", "h", 8], 
+	const edges = [["a","b", 4], ["a", "h", 8],
 									["b", "c", 8], ["b", "h", 11],
 									["c", "d", 7], ["c", "f", 4], ["c", "i", 2],
 									["d", "e", 9], ["d", "f", 14],
@@ -110,7 +82,7 @@ var kruskal = () => {
 									["h", "i", 7]];
 	edges.sort((arr1, arr2) => arr1[2] - arr2[2]);
 	//console.log(edges);
-	
+
 	const ds = new DisjoinSet();
 	const mst = [];
 	edges.forEach(edge => {
