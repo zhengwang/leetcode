@@ -6,7 +6,7 @@ class DisjoinSet {
 
 	// find the present of x
 	find(x) {
-		if (!this.parent.get(x)) {
+		if (this.parent.get(x)==undefined) {
 			this.parent.set(x, null);
 			return x;
 		}
